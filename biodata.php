@@ -1,28 +1,32 @@
 <?php
 $nama_lengkap = "Maharani Rosyadah Najah";
 $nama_panggilan = "Maharani";
+$agama ="Islam";
+$tempat_lahir ="Semarang";
+$tanggal_lahir = "28";
+$bulan_lahir ="02";
 $tahun_lahir = 2010;
 $alamat = "JL. borobudur utara IV no 75, Semarang Barat";
-$email = "rossa2810@email.com";
-$foto = "WhatsApp Image 2026-02-24 at 9.19.50 PM.jpeg";
-$motto = "When I start and Never Stop!!!!!";
-
+$hobi = ["Membuat Kue", "Nonton Film"];
+$skills = [
+    "Mencari film yang seru ditonton" => 95
+];
+$gender ="Perempuan";
+$Kewarganegaran ="Indonesia";
+$no_wa ="089501990102";
 $tahun_sekarang = date("Y");
 $umur = $tahun_sekarang - $tahun_lahir;
 $tahun_10 = $tahun_sekarang + 10;
 $umur_10 = $umur + 10;
-
-$hobi = ["Membuat Kue", "Nonton Film"];
 $makanan = ["Bakso", "Nasi Goreng", "Mie Ayam"];
 $minuman = ["Es Teh", "Jus Alpukat", "Air Mineral"];
-
-$skills = [
-    "Mencari film yang seru ditonton" => 95
-];
+$email = "rossa2810@email.com";
+$foto = "WhatsApp Image 2026-02-24 at 9.19.50 PM.jpeg";
+$motto = "When I start and Never Stop!!!!!";
 
 $halaman = isset($_GET['page']) ? $_GET['page'] : 'biodata';
 
-$nama_saya = "Maharani,"; //
+$nama_saya = "Maharani,";
 
 $piket = [
     "Senin" => ["Cindy,", "Shesanata,", "Tsabita,", "Naila,", "Kartika,","Rasya,", "Yusuf,","Habibi."],
@@ -116,11 +120,18 @@ a{
 <img src="<?= $foto ?>" width="150"><br><br>
 </center>
 
-<p><b>Nama:</b> <?= $nama_lengkap ?></p>
-<p><b>Nama:</b> <?= $nama_panggilan ?></p>
+<p><b>Nama Lengkap:</b> <?= $nama_lengkap ?></p>
+<p><b>Nama Panggilan:</b> <?= $nama_panggilan ?></p>
+<p><b>Agama:</b> <?= $agama ?></p>
+<p><b>Tempat Lahir:</b> <?= $tempat_lahir ?></p>
+<p><b>Tanggal Lahir:</b> <?= $tanggal_lahir ?></p>
+<p><b>Bulan:</b> <?= $bulan_lahir ?></p>
+<p><b>Tahun Lahir:</b> <?= $tahun_lahir ?></p>
 <p><b>Umur:</b> <?= $umur ?> tahun</p>
 <p><b>Alamat:</b> <?= $alamat ?></p>
 <p><b>Email:</b> <?= $email ?></p>
+<p><b>No WA:</b> <?= $no_wa ?></p>
+<p><b>Kewarganegaran:</b> <?= $Kewarganegaran ?></p>
 
 <h3>Keinginanku 10 Tahun Lagi</h3>
 <p>
@@ -131,19 +142,9 @@ Sepuluh tahun lagi, saya ingin menjadi seorang konsultan IT yang sukses, dikenal
 </p>
 
 <h3>🎮 Hobi</h3>
-<ol>
+<ol type="1">
 <?php foreach($hobi as $h){ echo "<li>$h</li>"; } ?>
 </ol>
-
-<h3>🍜 Makanan Favorit</h3>
-<ul>
-<?php foreach($makanan as $m){ echo "<li>$m</li>"; } ?>
-</ul>
-
-<h3>🥤 Minuman Favorit</h3>
-<ul>
-<?php foreach($minuman as $d){ echo "<li>$d</li>"; } ?>
-</ul>
 
 <h3>🎬 Skills</h3>
 <?php foreach($skills as $skill => $nilai){ ?>
@@ -151,6 +152,31 @@ Sepuluh tahun lagi, saya ingin menjadi seorang konsultan IT yang sukses, dikenal
 <input type="range" min="0" max="100" value="<?= $nilai ?>" disabled>
 <br><br>
 <?php } ?>
+
+<ul>
+<li><b>Gender:</b> <?= $gender ?></li>
+<li><b>Warga Negara:</b> <?= $Kewarganegaran ?></li>
+<li><b>Alamat:</b> <?= $alamat ?></li>
+</ul>
+
+<div class="card">
+<h3>Riwayat Pendidikan</h3>
+<table>
+<tr><th>Tingkat</th><th>Sekolah</th><th>Mulai</th><th>Lulus</th></tr>
+<tr><td>SD</td><td>SDN Manyaran 02</td><td>2016</td><td>2022</td></tr>
+<tr><td>SMP</td><td>SMPN 19 Semarang</td><td>2022</td><td>2025</td></tr>
+</table>
+</div>
+
+<h3>🍜 Makanan Favorit</h3>
+<ul style="list-style-type:square;">
+<?php foreach($makanan as $m){ echo "<li>$m</li>"; } ?>
+</ul>
+
+<h3>🥤 Minuman Favorit</h3>
+<ol type="A">
+<?php foreach($minuman as $d){ echo "<li>$d</li>"; } ?>
+</ol>
 
 <div class="motto">
 <h3><?= $motto ?></h3>
@@ -212,7 +238,7 @@ foreach($piket as $hari => $nama){
 </table>
 
 <br>
-<a href="biodata.php">⬅ Kembali ke Biodata</a>
+<a href="?page=biodata">⬅ Kembali ke Biodata</a>
 
 <?php } ?>
 
